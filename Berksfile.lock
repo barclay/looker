@@ -1,0 +1,21 @@
+DEPENDENCIES
+  aws
+  java (~> 1.50.0)
+  looker
+    path: .
+    metadata: true
+
+GRAPH
+  apt (6.1.4)
+  aws (7.2.2)
+  homebrew (4.2.0)
+  java (1.50.0)
+    apt (>= 0.0.0)
+    homebrew (>= 0.0.0)
+    windows (>= 0.0.0)
+  looker (0.2.0)
+    aws (>= 0.0.0)
+    java (>= 0.0.0)
+  ohai (5.2.0)
+  windows (3.4.1)
+    ohai (>= 4.0.0)
