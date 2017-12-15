@@ -28,3 +28,16 @@ Running Test Kitchen
 
 Test Kitchen test suites are defined in [.kitchen.yml](https://github.com/agileorbit-cookbooks/java/blob/master/.kitchen.yml). 
 Running `kitchen test` will cause Test Kitchen to spin up each platform VM in turn, running each of the test suites, as defined. 
+
+If you're working on the SSL portion, you'll want to setup a file called `.s2.yml` with the contents as follows: 
+
+```yaml
+s3: 
+  - aws_access_key_id: {your s3 id}
+  - aws_secret_access_key: {your s3 secret}
+  - s3_bucket: {name of your bucket}
+  - certificate_key_path: /path/to/your-cert.key
+  - certificate_path: /path/to/your-cert.pem
+```
+
+It will then pull these in with the `looker::ssl` suite and test that way. At some point, we should set these up to be mockable. 
