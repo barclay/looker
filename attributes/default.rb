@@ -14,13 +14,8 @@ default[:looker][:looker_user_ulimit] = 4096
 default[:looker][:major_version]      = 5
 default[:looker][:minor_version]      = 2
 
-case "#{node[:looker][:major_version]}#{node[:looker][:minor_version]}"
-when '52'
-  default[:looker][:download_url] = 'https://s3.amazonaws.com/download.looker.com/aeHee2HiNeekoh3uIu6hec3W/looker-latest.jar'
-when '46'
-  default[:looker][:download_url] = 'https://s3.amazonaws.com/download.looker.com/aeHee2HiNeekoh3uIu6hec3W/looker-latest.jar'
-  # TODO: add more urls...
-end
+default[:looker][:download_url] = "https://s3.amazonaws.com/download.looker.com/aeHee2HiNeekoh3uIu6hec3W/looker-" + 
+  "#{node[:looker][:major_version]}.#{node[:looker][:minor_version]}-latest.jar"
 
 # Java 8
 default[:java]['jdk_version'] = '8'

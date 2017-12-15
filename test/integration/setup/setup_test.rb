@@ -25,6 +25,11 @@ describe file('/home/looker/looker/looker.jar') do
   its('owner') { should eq 'looker' }
 end
 
+describe command('runuser -l looker -c "java -jar /home/looker/looker/looker.jar version"') do
+  its('stdout') { should match /5.2/ }
+  its('stderr') { should eq '' }
+end
+
 describe file('/home/looker/looker/looker') do
   it { should exist }
   it { should be_executable }
