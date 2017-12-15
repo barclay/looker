@@ -3,6 +3,8 @@ Looker Cookbook
 
 This is a cookbook for setting up an on-premise install of [Looker](http://looker.com), the business intelligence software. 
 
+Please note, this is not an official Looker product; but made by someone who's a customer|user. 
+
 
 Production Deployment 
 -----
@@ -12,18 +14,27 @@ With the standard set of defaults, this cookbook will install looker very simila
 You can override the attributes in a cookbook, role, or environment:
 
 ```ruby
-default[:looker][:looker_user]  = 'looker'
-default[:looker][:looker_group] = 'looker'
-default[:looker][:home_dir]     = '/home/looker/'
+node[:looker][:looker_user]  = 'looker'
+node[:looker][:looker_group] = 'looker'
+node[:looker][:home_dir]     = '/home/looker/'
+```
+
+Versions
+----
+The default version of looker installed is 5.2. If you'd like to specify a different version, you can override the major and minor versions to the specific versions you require. Be advised, this will only work with _final_ versions of looker, and not pre-release versions. 
+
+```ruby
+node[:looker][:major_version] = '4'
+node[:looker][:minor_version] = '22'
 ```
 
 Java JDK
 -----
-NOTE: Looker 4.2 and greater require a java JDK version of Oracle Java 8 or greater, and will be part of the installation. You can override this in your environment with:
+NOTE: Looker 4.2 and greater require a java JDK version of Oracle Java 8 or greater, and, by default, will be part of this installation. You can override the specific java settings in your environment with:
 
 ```ruby
-default[:java][:jdk_version]    = '8'
-default[:java][:install_flavor] = 'oracle'
+node[:java][:jdk_version]    = '8'
+node[:java][:install_flavor] = 'oracle'
 ```
 
 SSL
@@ -110,7 +121,9 @@ Starts the looker service.
 License and Author
 -----
 Author: Barclay Loftus (<barclay@deliv.co>)
+
 Copyright (c) 2017 Deliv
+
 
 MIT License
 
