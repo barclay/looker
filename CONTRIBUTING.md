@@ -7,8 +7,6 @@ Contributing
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
 
-As this cookbook is not maintained by Chef, you **do not** need to sign any sort of contributor agreement. Simply make your change and open a pull request.
+As this cookbook is open sourced you **do not** need to sign any sort of contributor agreement. Simply make your change and open a pull request.
 
 Contributions will only be accepted if they are fully tested.
-
-
