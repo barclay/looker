@@ -21,12 +21,12 @@ end
 
 # Ensure ulimits are properly set, if there are any
 #
-if node[:looker][:looker_user_ulimit] 
+if node[:looker][:looker_user_ulimit]
   execute 'Set ulimit for looker user' do
     user 'root'
-    command "echo \"#{node[:looker][:looker_user]} hard nofile #{node[:looker][:looker_user_ulimit]}\" >> /etc/security/limits.conf && " +
-            "echo \"#{node[:looker][:looker_user]} soft nofile #{node[:looker][:looker_user_ulimit]}\" >> /etc/security/limits.conf && " +
-            "sysctl -p"
+    command "echo \"#{node[:looker][:looker_user]} hard nofile #{node[:looker][:looker_user_ulimit]}\" >> /etc/security/limits.conf && "\
+            "echo \"#{node[:looker][:looker_user]} soft nofile #{node[:looker][:looker_user_ulimit]}\" >> /etc/security/limits.conf && "\
+            'sysctl -p'
     not_if "grep #{node[:looker][:looker_user]} /etc/security/limits.conf"
   end
 end

@@ -9,12 +9,12 @@ include_recipe 'aws'
 #
 unless File.exist?('/usr/bin/java')
   include_recipe 'java'
-end 
+end
 
 # ensure we have the looker user
 #
 unless node['etc']['passwd'][node[:looker][:looker_user]]
-  include_recipe "looker::user"
+  include_recipe 'looker::user'
 end
 
 directory node[:looker][:looker_dir] do
