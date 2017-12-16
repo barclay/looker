@@ -1,6 +1,8 @@
 Looker Cookbook
 ====
 
+[![Cookbook Version](https://img.shields.io/cookbook/v/looker.svg)](https://community.opscode.com/cookbooks/looker)
+
 This is a cookbook for setting up an on-premise install of [Looker](http://looker.com), the business intelligence software. 
 
 Please note, this is not an official Looker product; but made by someone who's a customer|user. 
