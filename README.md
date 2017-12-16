@@ -70,6 +70,7 @@ Java JDK 8+
 ### Platform
 
 * Ubuntu 16.04
+* CentOS 7.2
 
 Attributes
 -----
