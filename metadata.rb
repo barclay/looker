@@ -4,7 +4,7 @@ maintainer_email 'eng@deliv.co'
 license          'MIT'
 description      'Installs/Configures Looker'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.2.1'
+version          '0.3'
 
 %w(ubuntu centos).each do |os|
   supports os
