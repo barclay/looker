@@ -55,7 +55,7 @@ looker: {
 }
 ```
 
-This allows you to point to a given s3 bucket and grab both your certificate `.pem` file, and it's corresponding `.key`, and the `looker::ssl` recipe will setup a java key store, and give those credentials to the looker script. See [the attributes/ssl.rb](https://github.com/deliv/looker-cookbook/blob/master/attributes/ssl.rb) for more details. 
+This allows you to point to a given s3 bucket and grab both your certificate `.pem` file, and it's corresponding `.key`, and the `looker::ssl` recipe will setup a java key store, and give those credentials to the looker script. See [the attributes/ssl.rb](https://github.com/deliv/looker/blob/master/attributes/ssl.rb) for more details. 
 
 Usage
 -----
