@@ -35,8 +35,8 @@ Java JDK
 NOTE: Looker 4.2 and greater require a java JDK version of Oracle Java 8 or greater, and, by default, will be part of this installation. You can override the specific java settings in your environment with:
 
 ```ruby
-node[:java][:jdk_version]    = '8'
-node[:java][:install_flavor] = 'oracle'
+node['java']['jdk_version']    = '8'
+node['java']['install_flavor'] = 'oracle'
 ```
 
 SSL
@@ -55,7 +55,7 @@ looker: {
 }
 ```
 
-This allows you to point to a given s3 bucket and grab both your certificate `.pem` file, and it's corresponding `.key`, and the `looker::ssl` recipe will setup a java key store, and give those credentials to the looker script. 
+This allows you to point to a given s3 bucket and grab both your certificate `.pem` file, and it's corresponding `.key`, and the `looker::ssl` recipe will setup a java key store, and give those credentials to the looker script. See [the attributes/ssl.rb](https://github.com/deliv/looker-cookbook/blob/master/attributes/ssl.rb) for more details. 
 
 Usage
 -----
