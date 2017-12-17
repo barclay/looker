@@ -12,5 +12,5 @@ describe user('looker') do
 end
 
 describe file('/etc/security/limits.conf') do
-  its('content') { should match /looker hard nofile 9999/ }
+  its('content') { should match(/looker hard nofile 9999/) }
 end

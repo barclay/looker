@@ -5,7 +5,7 @@ license          'MIT'
 description      'Installs/Configures Looker'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.2.1'
-supports         ['ubuntu', 'centos']
+supports         %w(ubuntu centos)
 
 recipe 'looker::default', 'Installs the looker application (calls to `setup`)'
 recipe 'looker::setup',   'Installs the looker application'

@@ -1,7 +1,7 @@
 # # encoding: utf-8
-
+#
 # Inspec test for recipe looker::setup
-
+#
 
 describe user('looker') do
   it { should exist }
@@ -26,7 +26,7 @@ describe file('/home/looker/looker/looker.jar') do
 end
 
 describe command('runuser -l looker -c "java -jar /home/looker/looker/looker.jar version"') do
-  its('stdout') { should match /5.2/ }
+  its('stdout') { should match(/5.2/) }
   its('stderr') { should eq '' }
 end
 
@@ -39,7 +39,7 @@ end
 describe file('/etc/systemd/system/looker.service') do
   it { should exist }
   its('owner') { should eq 'root' }
-  its('content') { should match /WorkingDirectory=\/home\/looker\/looker/ }
+  its('content') { should match %r{WorkingDirectory=/home/looker/looker} }
 end
 
 describe service('looker') do
@@ -47,7 +47,7 @@ describe service('looker') do
 end
 
 describe command('curl https://localhost:9999/alive -vk --stderr -') do
-  its('stdout') { should match /HTTP\/1.1 200 OK/ }
+  its('stdout') { should match %r{HTTP/1.1 200 OK} }
 end
 
 describe port(9999) do

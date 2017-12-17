@@ -13,5 +13,5 @@
 #     ::File.join(home_dir, '.ssh', ::File.basename(path))
 # end
 
-
-default[:looker][:setup][:download_url] = 'https://s3.amazonaws.com/download.looker.com/aeHee2HiNeekoh3uIu6hec3W/looker-latest.jar'
+default['looker']['setup']['download_url'] = 'https://s3.amazonaws.com/' \
+  'download.looker.com/aeHee2HiNeekoh3uIu6hec3W/looker-latest.jar'

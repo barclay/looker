@@ -16,9 +16,9 @@ With the standard set of defaults, this cookbook will install looker very simila
 You can override the attributes in a cookbook, role, or environment:
 
 ```ruby
-node[:looker][:looker_user]  = 'looker'
-node[:looker][:looker_group] = 'looker'
-node[:looker][:home_dir]     = '/home/looker/'
+node['looker']['looker_user']  = 'looker'
+node['looker']['looker_group'] = 'looker'
+node['looker']['home_dir']     = '/home/looker/'
 ```
 
 Versions
@@ -26,8 +26,8 @@ Versions
 The default version of looker installed is 5.2. If you'd like to specify a different version, you can override the major and minor versions to the specific versions you require. Be advised, this will only work with _final_ versions of looker, and not pre-release versions. 
 
 ```ruby
-node[:looker][:major_version] = '4'
-node[:looker][:minor_version] = '22'
+node['looker']['major_version'] = '4'
+node['looker']['minor_version'] = '22'
 ```
 
 Java JDK
@@ -35,8 +35,8 @@ Java JDK
 NOTE: Looker 4.2 and greater require a java JDK version of Oracle Java 8 or greater, and, by default, will be part of this installation. You can override the specific java settings in your environment with:
 
 ```ruby
-node[:java][:jdk_version]    = '8'
-node[:java][:install_flavor] = 'oracle'
+node['java']['jdk_version']    = '8'
+node['java']['install_flavor'] = 'oracle'
 ```
 
 SSL
@@ -55,7 +55,7 @@ looker: {
 }
 ```
 
-This allows you to point to a given s3 bucket and grab both your certificate `.pem` file, and it's corresponding `.key`, and the `looker::ssl` recipe will setup a java key store, and give those credentials to the looker script. 
+This allows you to point to a given s3 bucket and grab both your certificate `.pem` file, and it's corresponding `.key`, and the `looker::ssl` recipe will setup a java key store, and give those credentials to the looker script. See [the attributes/ssl.rb](https://github.com/deliv/looker-cookbook/blob/master/attributes/ssl.rb) for more details. 
 
 Usage
 -----
@@ -81,17 +81,17 @@ See `attributes/default.rb` for default values.
 
 | Attribute  | Note | Default Value |
 | ------------- | ------------- | ---------------------------|
-| `node[:looker][:looker_user]`| The user looker should be run as, and will be created in the `looker::user` recipe. | `'looker'` |
-|`node[:looker][:looker_group]`| The group the looker user should belong to, and will be created in the `looker::user` recipe. | `'looker'` |
-|`node[:looker][:home_dir]` | The home directory for the `looker` user | `'/home/looker/'` |
-|`node[:looker][:looker_dir]` | The looker wokring directory. | `/home/looker/looker`, per the looker convention |
-|`node[:looker][:looker_jar_file]` | The name of the looker jarfile | `'looker.jar'` |
-|`node[:looker][:looker_script_name]` |  The execution script to start the looker process. |  `'looker'` |
-|`node[:looker][:forward_to_443]` | Boolean toggle for setting iptables to forward requests to :443 to :9999 | `true` | 
-|`node[:looker][:use_custom_ssl]` | Boolean toggle for using a [custom SSL certificate](#ssl). | `false` |
-|`node[:looker][:looker_user_ulimit]` | The ulimit to be set for the looker user. | `4096` |
-|`node[:looker][:major_version]` | The major version of looker to install.| `5` |
-|`node[:looker][:minor_version]` | The minor version of looker to install. | `2` | 
+| `node['looker']['looker_user']`| The user looker should be run as, and will be created in the `looker::user` recipe. | `'looker'` |
+|`node['looker']['looker_group']`| The group the looker user should belong to, and will be created in the `looker::user` recipe. | `'looker'` |
+|`node['looker']['home_dir']` | The home directory for the `looker` user | `'/home/looker/'` |
+|`node['looker']['looker_dir']` | The looker wokring directory. | `/home/looker/looker`, per the looker convention |
+|`node['looker']['looker_jar_file']` | The name of the looker jarfile | `'looker.jar'` |
+|`node['looker']['looker_script_name']` |  The execution script to start the looker process. |  `'looker'` |
+|`node['looker']['forward_to_443']` | Boolean toggle for setting iptables to forward requests to :443 to :9999 | `true` | 
+|`node['looker']['use_custom_ssl']` | Boolean toggle for using a [custom SSL certificate](#ssl). | `false` |
+|`node['looker']['looker_user_ulimit']` | The ulimit to be set for the looker user. | `4096` |
+|`node['looker']['major_version']` | The major version of looker to install.| `5` |
+|`node['looker']['minor_version']` | The minor version of looker to install. | `2` | 
 
 
 Recipes
