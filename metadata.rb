@@ -4,7 +4,7 @@ maintainer_email 'eng@deliv.co'
 license          'MIT'
 description      'Installs/Configures Looker'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.3'
+version          '0.3.1'
 
 %w(ubuntu centos).each do |os|
   supports os
@@ -17,8 +17,8 @@ recipe 'looker::ssl',     'Sets up a custom SSL certificate for the looker appli
 recipe 'looker::stop',    'Stops the looker service'
 recipe 'looker::start',   'Starts the looker service'
 
-source_url 'https://github.com/deliv/looker-cookbook'
-issues_url 'https://github.com/deliv/looker-cookbook/issues'
+source_url 'https://github.com/deliv/looker'
+issues_url 'https://github.com/deliv/looker/issues'
 
 depends 'java'
 depends 'aws'
