@@ -39,7 +39,7 @@ end
 describe file('/etc/systemd/system/looker.service') do
   it { should exist }
   its('owner') { should eq 'root' }
-  its('content') { should match %r{/WorkingDirectory=/home/looker/looker/} }
+  its('content') { should match %r{WorkingDirectory=/home/looker/looker} }
 end
 
 describe service('looker') do
