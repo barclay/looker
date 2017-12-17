@@ -18,15 +18,15 @@ The Chef tooling (chefspec/test kitchen/etc) is managed by the [Chef Development
 Clone the latest version of the cookbook from the repository.
 
 ```bash
-git clone git@github.com:deliv/looker-cookbook.git
-cd looker-cookbook
+git clone git@github.com:deliv/looker.git
+cd looker
 ```
 
 
 Running Test Kitchen
 -----
 
-Test Kitchen test suites are defined in [.kitchen.yml](https://github.com/agileorbit-cookbooks/java/blob/master/.kitchen.yml). 
+Test Kitchen test suites are defined in [.kitchen.yml](https://github.com/deliv/looker/blob/master/.kitchen.yml). 
 Running `kitchen test` will cause Test Kitchen to spin up each platform VM in turn, running each of the test suites, as defined. 
 
 If you're working on the SSL portion, you'll want to setup a file called `.s2.yml` with the contents as follows: 
