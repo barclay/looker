@@ -1,4 +1,15 @@
 ---
+<%
+# If you want to test the SSL certs, please create a .ssl.yml file with
+# some valid settings for an s3 bucket, cert and key. 
+# TODO: let's fix this to be mockable. 
+if File.exist?('.ssl.yml')
+  ssl = YAML.load_file('.ssl.yml')
+else
+  ssl = {}
+end
+%>
+
 driver:
   name: vagrant
 
@@ -6,8 +17,6 @@ provisioner:
   name: chef_zero
   always_update_cookbooks: true
   require_chef_omnibus: 12
-
-<% s3 = YAML.load_file('.s3.yml') %>
 
 verifier:
   name: inspec
@@ -29,10 +38,10 @@ suites:
     run_list:
       - recipe[looker::ssl]
     attributes:
-      - looker:
+      looker:
         ssl: 
-          aws_access_key_id: <%= s3['aws_access_key_id'] %>
-          aws_secret_access_key: <%= s3['aws_secret_access_key'] %>
-          s3_bucket: <%= s3['s3_bucket'] %>
-          certificate_key_path: <%= s3['certificate_key_path'] %>
-          certificate_path: <%= s3['certificate_path']%>
+          aws_access_key_id: <%= ssl['aws_access_key_id'] %>
+          aws_secret_access_key: <%= ssl['aws_secret_access_key'] %>
+          s3_bucket: <%= ssl['s3_bucket'] %>
+          certificate_key_path: <%= ssl['certificate_key_path'] %>
+          certificate_path: <%= ssl['certificate_path']%>

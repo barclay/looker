@@ -3,13 +3,12 @@
 # Cookbook:: looker
 # Recipe:: ssl
 #
+
 include_recipe 'aws'
 
 # the keystore also requires java be present...
 #
-unless File.exist?('/usr/bin/java')
-  include_recipe 'java'
-end
+include_recipe 'java' unless File.exist?('/usr/bin/java')
 
 # ensure we have the looker user
 #
@@ -34,10 +33,19 @@ directory ssl_directory do
   action :create
 end
 
+# generate the keystore password file
+#
+keystorepass = File.join(ssl_directory, '.keystorepass')
+if File.exist?(keystorepass)
+  file keystorepass do
+    action :delete
+  end
+end
+
 execute 'Setup the java keystore password' do
   cwd ssl_directory
   sensitive true
-  command "echo \"#{node['looker']['ssl']['keystore_password']}\" > .keystorepass"
+  command "echo \"#{node['looker']['ssl']['keystore_password']}\" > #{keystorepass}"
   user node['looker']['looker_user']
 end
 
@@ -55,7 +63,14 @@ aws_s3_file File.join(ssl_directory, 'certificate.pem') do
   aws_secret_access_key node['looker']['ssl']['aws_secret_access_key']
 end
 
+# generate the java keystore
+#
 jks_file = File.join(ssl_directory, 'looker.jks')
+if File.exist?(jks_file)
+  file jks_file do
+    action :delete
+  end
+end
 
 bash 'Generate the java key store' do
   user node['looker']['looker_user']
@@ -79,6 +94,7 @@ bash 'Generate the java key store' do
 end
 
 # cleanup
+#
 file File.join(ssl_directory, 'certificate.key') do
   action :delete
 end

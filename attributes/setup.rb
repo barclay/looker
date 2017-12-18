@@ -1,3 +1,12 @@
+#
+# Author:: Barclay Loftus (<barclay@deliv.co>)
+# Cookbook:: looker
+# Attributes:: setup
+#
+
+# TODO: hold this in place until we get the checkout from gethub of the
+# looker models...
+#
 
 # home_dir = ::File.join('/', 'home', node[:deliv_looker][:user])
 # base_dir = node[:deliv_looker][:base_dir]
@@ -12,6 +21,3 @@
 #   default[:deliv_looker][:setup][:symlinks][path] =
 #     ::File.join(home_dir, '.ssh', ::File.basename(path))
 # end
-
-default['looker']['setup']['download_url'] = 'https://s3.amazonaws.com/' \
-  'download.looker.com/aeHee2HiNeekoh3uIu6hec3W/looker-latest.jar'

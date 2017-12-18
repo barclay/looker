@@ -1,6 +1,9 @@
-# # encoding: utf-8
-
-# Inspec test for recipe deliv_looker::default
+# encoding: utf-8
+#
+# Author:: Barclay Loftus (<barclay@deliv.co>)
+# Cookbook:: looker
+# test:: user
+#
 
 describe group('looker') do
   it { should exist }

@@ -1,5 +1,5 @@
 DEPENDENCIES
-  aws
+  aws (~> 7)
   java (~> 1.50.0)
   looker
     path: .
@@ -13,7 +13,7 @@ GRAPH
     apt (>= 0.0.0)
     homebrew (>= 0.0.0)
     windows (>= 0.0.0)
-  looker (0.2.1)
+  looker (0.3.1)
     aws (>= 0.0.0)
     java (>= 0.0.0)
   ohai (5.2.0)

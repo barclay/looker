@@ -1,3 +1,8 @@
+#
+# Author:: Barclay Loftus (<barclay@deliv.co>)
+# Cookbook:: looker
+# Attributes:: default
+#
 
 # looker general attributes
 default['looker']['looker_user']        = 'looker'

@@ -1,3 +1,8 @@
+#
+# Author:: Barclay Loftus (<barclay@deliv.co>)
+# Cookbook:: looker
+# Attributes:: ssl
+#
 
 # if you'd like to have looker use a custom SSL certificate you'll
 # want to populate these values
@@ -13,12 +18,9 @@ default['looker']['ssl']['keystore_password']       = Array.new(10)
                                                            .join
 
 if node['looker']['use_custom_ssl']
-  ssl_dir = File.join(node['looker']['looker_dir'], ssl)
+  ssl_dir = File.join(node['looker']['looker_dir'], '.ssl')
   args = " --ssl-keystore=#{File.join(ssl_dir, 'looker.jks')} "\
          " --ssl-keystore-pass-file=#{File.join(ssl_dir, '.keystorepass')} "
-
-  #  default['looker'][:jar_start_args] = ' --ssl-keystore=/home/looker/looker/.ssl/looker.jks '\
-  #                                      ' --ssl-keystore-pass-file=/home/looker/looker/.ssl/.keystorepass'
 
   default['looker']['jar_start_args'] = args
 end

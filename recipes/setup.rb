@@ -17,9 +17,7 @@ directory node['looker']['looker_dir'] do
   action :create
 end
 
-if node['looker']['use_custom_ssl']
-  include_recipe 'looker::ssl'
-end
+include_recipe 'looker::ssl' if node['looker']['use_custom_ssl']
 
 # Download looker
 # We'll keep a local copy of it in the home directory, for convienience

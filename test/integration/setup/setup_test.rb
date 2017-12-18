@@ -1,6 +1,8 @@
 # # encoding: utf-8
 #
-# Inspec test for recipe looker::setup
+# Author:: Barclay Loftus (<barclay@deliv.co>)
+# Cookbook:: looker
+# test:: default
 #
 
 describe user('looker') do
